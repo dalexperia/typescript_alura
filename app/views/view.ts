@@ -1,4 +1,4 @@
-export class View<T> {
+export abstract class View<T> {
     protected elemento: HTMLElement;
     constructor(seletor: string) {
         this.elemento = document.querySelector(seletor);
