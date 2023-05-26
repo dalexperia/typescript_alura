@@ -4,6 +4,9 @@ export abstract class View<T> {
 
     constructor(seletor: string, scape?: boolean) {
         this.elemento = document.querySelector(seletor);
+        if(scape) {
+            this.scape = scape;
+        }
     }
 
     protected abstract template(model: T): string;

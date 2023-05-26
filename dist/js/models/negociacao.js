@@ -8,7 +8,6 @@ export class Negociacao {
         return this.valor * this.quantidade;
     }
     get data() {
-        // Programação defensiva: crie um copia da data original e a retorne
         const data = new Date(this._data.getTime());
         return data;
     }
