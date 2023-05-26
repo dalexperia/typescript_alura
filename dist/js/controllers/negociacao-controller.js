@@ -1,4 +1,4 @@
-import { DiaDaSemana } from "../enums/diasDaSemana";
+import { DiaDaSemana } from "../enums/diasDaSemana.js";
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { MensagemView } from "../views/mensagem-view.js";
@@ -24,7 +24,8 @@ export class NegociacaoController {
         this.limparForm();
     }
     diaUtil(data) {
-        return data.getDay() > DiaDaSemana.DOMINGO && data.getDay() < DiaDaSemana.SABADO;
+        return data.getDay() > DiaDaSemana.DOMINGO
+            && data.getDay() < DiaDaSemana.SABADO;
     }
     limparForm() {
         this.inputData.value = '';
