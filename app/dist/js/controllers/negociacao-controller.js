@@ -46,5 +46,5 @@ export class NegociacaoController {
     }
 }
 __decorate([
-    logarTempoExecucao()
+    logarTempoExecucao(true)
 ], NegociacaoController.prototype, "adiciona", null);
