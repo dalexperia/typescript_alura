@@ -28,9 +28,10 @@ export class NegociacaoController {
             return;
         }
         this.negociacoes.adiciona(negociacao);
+        console.log(negociacao.paraTexto());
+        console.log(this.negociacoes.paraTexto());
         this.atualizaView();
         this.limparForm();
-        console.log(JSON.stringify(this.negociacoes, null, 2));
     }
     importarDados() {
         this.negociacaoService.obterNegociacoesDoDia()
