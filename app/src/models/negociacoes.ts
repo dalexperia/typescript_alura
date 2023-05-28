@@ -1,7 +1,9 @@
+import { Comparavel } from "../interfaces/comparavel.js";
 import { Imprimivel } from "../utils/imprimivel.js";
 import { Negociacao } from "./negociacao.js";
 
-export class Negociacoes implements Imprimivel {
+export class Negociacoes implements Imprimivel, Comparavel<Negociacoes>{
+    
     private negociacoes: Negociacao[] = [];
 
     public adiciona(negociacao: Negociacao): void {
@@ -18,6 +20,10 @@ export class Negociacoes implements Imprimivel {
             null,
             2
         );
+    }
+
+    ehIgual(negociacoes: Negociacoes): boolean {
+        return JSON.stringify(this.negociacoes) === JSON.stringify(negociacoes.lista());
     }
 
 }
