@@ -5,6 +5,7 @@ import { DiaDaSemana } from "../enums/diasDaSemana.js";
 import { NegociacoesDoDia } from "../interfaces/negociacaoDoDia.js";
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
+import { NegociacoesService } from "../services/negociacoes-service.js";
 import { MensagemView } from "../views/mensagem-view.js";
 import { NegociacoesView } from "../views/negociacoes-view.js";
 
@@ -18,6 +19,7 @@ export class NegociacaoController {
     private negociacoes: Negociacoes = new Negociacoes();
     private negociacoesView = new NegociacoesView("#negociacoesView");
     private mensagemView = new MensagemView("#mensagemView");
+    private negociacaoService = new NegociacoesService();
 
     constructor() {
         this.negociacoesView.update(this.negociacoes);
