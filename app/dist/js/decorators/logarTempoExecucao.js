@@ -17,3 +17,4 @@ export function logarTempoExecucao(inSeconds = false) {
         return descriptor;
     };
 }
+//# sourceMappingURL=logarTempoExecucao.js.map
