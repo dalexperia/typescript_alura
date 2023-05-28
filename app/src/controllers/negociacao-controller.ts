@@ -2,7 +2,6 @@ import { domInject } from "../decorators/domInject.js";
 import { inspect } from "../decorators/inspect.js";
 import { logarTempoExecucao } from "../decorators/logarTempoExecucao.js";
 import { DiaDaSemana } from "../enums/diasDaSemana.js";
-import { NegociacoesDoDia } from "../interfaces/negociacaoDoDia.js";
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { NegociacoesService } from "../services/negociacoes-service.js";
@@ -40,20 +39,12 @@ export class NegociacaoController {
         this.negociacoes.adiciona(negociacao);
         this.atualizaView();
         this.limparForm();
+
+        console.log(JSON.stringify(this.negociacoes, null, 2));
     }
 
     importarDados():void {
-        fetch('http://localhost:8080/dados')
-        .then(res => res.json())
-        .then((dados: NegociacoesDoDia[]) => {
-            return dados.map(dadoDeHoje => {
-                return new Negociacao(
-                    new Date(), 
-                    dadoDeHoje.vezes, 
-                    dadoDeHoje.montante
-                )
-            });
-        })
+        this.negociacaoService.obterNegociacoesDoDia()
         .then(negociaosDeHoje => {
             for(let negociacao of negociaosDeHoje) {
                 this.negociacoes.adiciona(negociacao);

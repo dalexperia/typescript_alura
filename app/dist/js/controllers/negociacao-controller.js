@@ -30,15 +30,10 @@ export class NegociacaoController {
         this.negociacoes.adiciona(negociacao);
         this.atualizaView();
         this.limparForm();
+        console.log(JSON.stringify(this.negociacoes, null, 2));
     }
     importarDados() {
-        fetch('http://localhost:8080/dados')
-            .then(res => res.json())
-            .then((dados) => {
-            return dados.map(dadoDeHoje => {
-                return new Negociacao(new Date(), dadoDeHoje.vezes, dadoDeHoje.montante);
-            });
-        })
+        this.negociacaoService.obterNegociacoesDoDia()
             .then(negociaosDeHoje => {
             for (let negociacao of negociaosDeHoje) {
                 this.negociacoes.adiciona(negociacao);
