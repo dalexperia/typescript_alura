@@ -19,7 +19,7 @@ export class NegociacaoController {
     private mensagemView = new MensagemView("#mensagemView");
 
     constructor() {
-        this.inputData = document.querySelector("#data") as HTMLInputElement;
+        this.negociacoesView.update(this.negociacoes);
     }
 
     @inspect()

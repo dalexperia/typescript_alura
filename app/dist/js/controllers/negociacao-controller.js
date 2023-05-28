@@ -17,7 +17,7 @@ export class NegociacaoController {
         this.negociacoes = new Negociacoes();
         this.negociacoesView = new NegociacoesView("#negociacoesView");
         this.mensagemView = new MensagemView("#mensagemView");
-        this.inputData = document.querySelector("#data");
+        this.negociacoesView.update(this.negociacoes);
     }
     adiciona() {
         const negociacao = Negociacao.criaDe(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
